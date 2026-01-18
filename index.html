@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Kapı Üretim Takip Sistemi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="register-screen" class="container">
+        <img src="img/logo1.svg" width="80" alt="Logo">
+        <h2>Yeni Kullanıcı Kaydı</h2>
+        <select id="reg-role">
+            <option value="izleyici">İzleyici</option>
+            <option value="operator">Operatör</option>
+        </select>
+        <input type="text" id="reg-name" placeholder="Adınız Soyadınız">
+        <input type="text" id="reg-user" placeholder="Kullanıcı Adı">
+        <input type="password" id="reg-pass" placeholder="Şifre">
+        <button onclick="handleRegister()" class="login-btn">Kayıt Ol</button>
+        <p>Zaten üye misiniz? <a href="#" onclick="showLogin()">Giriş Yap</a></p>
+    </div>
+
+    <div id="login-screen" class="container" style="display:none;">
+        <img src="img/logo1.svg" width="80" alt="Logo">
+        <h2>Sisteme Giriş</h2>
+        <input type="text" id="login-user" placeholder="Kullanıcı Adı">
+        <input type="password" id="login-pass" placeholder="Şifre">
+        <button onclick="handleLogin()" class="login-btn">Giriş Yap</button>
+        <p id="login-error" class="error-msg" style="display:none;">Hatalı kullanıcı adı veya şifre!</p>
+    </div>
+
+    <div id="main-dashboard" class="container wide" style="display:none;">
+        <div class="dashboard-header">
+            <h2>Üretim Genel Durum - <span id="current-user-role"></span></h2>
+            <div class="header-controls">
+                <div id="order-input-section" style="display:none;">
+                    <textarea id="excel-input" placeholder="Sipariş girin"></textarea>
+                    <button onclick="addOrdersFromExcel()">Siparişleri Ekle</button>
+                </div>
+                <button onclick="logout()" class="logout-btn">Güvenli Çıkış</button>
+            </div>
+        </div>
+
+        <div id="stations-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
