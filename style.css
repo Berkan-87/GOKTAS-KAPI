@@ -1,45 +1,58 @@
+/* Tüm ekranlar için temel ayarlar */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    /* Mobilde üstten hizala */
     min-height: 100vh;
-    padding: 20px;
+    padding: 15px;
     margin: 0;
 }
 
 .container {
     background: white;
-    padding: 30px;
-    border-radius: 15px;
-    width: 350px;
+    padding: 20px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 350px;
+    /* Mobil için maksimum genişlik */
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    /* Ortala */
 }
 
 .wide {
-    width: 95%;
+    width: 100%;
     max-width: 1200px;
+    padding: 15px;
 }
 
+/* Responsive form elemanları */
 select,
 input,
 textarea {
     width: 100%;
     padding: 12px;
-    margin: 10px 0;
+    margin: 8px 0;
     border: 1px solid #ddd;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 16px;
+    /* Mobilde daha büyük font */
     box-sizing: border-box;
+    -webkit-appearance: none;
+    /* iOS'ta stil sorunlarını önle */
+    -moz-appearance: none;
+    appearance: none;
 }
 
 textarea {
-    height: 150px;
+    height: 120px;
     resize: vertical;
     font-family: monospace;
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.4;
     background: #f8f9fa;
     border: 1px solid #ced4da;
@@ -47,7 +60,8 @@ textarea {
 
 .login-btn {
     width: 100%;
-    padding: 12px;
+    padding: 14px;
+    /* Mobilde daha büyük buton */
     background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
     color: white;
     border: none;
@@ -56,45 +70,104 @@ textarea {
     font-size: 16px;
     font-weight: bold;
     margin-top: 10px;
+    transition: opacity 0.3s;
+    touch-action: manipulation;
+    /* Mobilde daha iyi dokunma */
 }
 
 .login-btn:hover {
     opacity: 0.9;
 }
 
+/* Responsive dashboard header */
 .dashboard-header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
+    flex-direction: column;
+    /* Mobilde dikey */
+    gap: 15px;
+    margin-bottom: 20px;
     padding-bottom: 15px;
     border-bottom: 2px solid #eee;
 }
 
+.dashboard-header h2 {
+    font-size: 18px;
+    /* Mobilde daha küçük başlık */
+    text-align: center;
+    margin: 0;
+    line-height: 1.3;
+}
+
 .header-controls {
     display: flex;
-    gap: 15px;
-    align-items: center;
+    flex-direction: column;
+    /* Mobilde dikey */
+    gap: 10px;
+    align-items: stretch;
+    /* Genişlet */
+    width: 100%;
+}
+
+#order-input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+    /* Genişlet */
+    width: 100%;
 }
 
 #excel-input {
-    width: 300px;
+    width: 100% !important;
+    /* Mobilde tam genişlik */
     height: 100px;
+    font-size: 14px;
 }
 
+#order-input-section button {
+    background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    width: 100%;
+    /* Mobilde tam genişlik */
+}
+
+.logout-btn {
+    background: linear-gradient(135deg, #ff4d4d 0%, #c53030 100%);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    width: 100%;
+    /* Mobilde tam genişlik */
+    text-align: center;
+}
+
+/* Responsive stations grid */
 #stations-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: 1fr;
+    /* Mobilde tek sütun */
+    gap: 15px;
 }
 
 .station-block {
     background: #fff;
     border: 2px solid #e1e5e9;
-    border-radius: 12px;
+    border-radius: 10px;
     text-align: left;
-    padding: 20px;
+    padding: 15px;
     transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+    /* İçerik taşmasını önle */
 }
 
 .station-block:last-child {
@@ -102,185 +175,292 @@ textarea {
     background: #f0f9f0;
 }
 
-.station-block:last-child h3 {
-    border-bottom-color: #4CAF50;
-    color: #2e7d32;
-}
-
-.station-block:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-}
-
 .station-block h3 {
     margin-top: 0;
     color: #2c3e50;
     border-bottom: 2px solid #3498db;
-    padding-bottom: 10px;
+    padding-bottom: 8px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    /* Mobilde dikey */
+    gap: 5px;
+    font-size: 16px;
 }
 
+.station-block h3 .order-count {
+    align-self: flex-start;
+    /* Sayıyı sola yasla */
+    margin-top: 5px;
+}
+
+/* Responsive order cards */
 .order-card-mini {
     background: #f8f9fa;
     border-left: 5px solid #3498db;
-    padding: 12px;
-    margin: 8px 0;
+    padding: 10px;
+    margin: 6px 0;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 14px;
+    flex-direction: column;
+    /* Mobilde dikey */
+    gap: 8px;
+    font-size: 13px;
     border-radius: 6px;
-    transition: all 0.3s;
-}
-
-.order-card-mini:hover {
-    background: #e9ecef;
-    transform: translateX(5px);
-}
-
-.completed-order {
-    border-left: 5px solid #4CAF50;
-    background: #f0f9f0;
 }
 
 .order-details {
     flex: 1;
-    line-height: 1.4;
+    line-height: 1.3;
 }
 
 .order-details div {
     margin: 2px 0;
-    font-size: 13px;
+    font-size: 12px;
+    word-break: break-word;
+    /* Uzun metinleri kır */
 }
 
 .order-details strong {
-    font-size: 14px;
+    font-size: 13px;
     color: #2c3e50;
-}
-
-.order-count {
-    background: #e26d29;
-    color: white;
-    padding: 3px 8px;
-    border-radius: 12px;
-    font-size: 14px;
-}
-
-.station-block:last-child .order-count {
-    background: #4CAF50;
 }
 
 .order-actions {
     display: flex;
-    gap: 5px;
-    align-items: center;
     flex-wrap: wrap;
-    justify-content: flex-end;
+    gap: 5px;
+    justify-content: flex-start;
+    /* Mobilde sola yasla */
 }
 
-.delete-btn {
-    background: #dc3545;
-    color: white;
-    border: none;
-    padding: 6px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 12px;
-}
-
-.delete-btn:hover {
-    background: #c82333;
-}
-
-.move-btn {
-    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.move-btn:hover {
-    opacity: 0.9;
-}
-
-.complete-btn {
-    background: linear-gradient(135deg, #4CAF50 0%, #2e7d32 100%);
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.complete-btn:hover {
-    opacity: 0.9;
-}
-
+.delete-btn,
+.move-btn,
+.complete-btn,
 .status-badge {
-    background: #6c757d;
-    color: white;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-}
-
-.empty {
-    color: #adb5bd;
-    font-size: 14px;
-    text-align: center;
-    padding: 20px;
-    font-style: italic;
-}
-
-.logout-btn {
-    background: linear-gradient(135deg, #ff4d4d 0%, #c53030 100%);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
+    font-size: 11px;
+    padding: 6px 10px;
     white-space: nowrap;
 }
 
-.logout-btn:hover {
-    opacity: 0.9;
+/* Responsive butonlar için medya sorguları */
+@media (max-width: 480px) {
+    .order-actions {
+        flex-direction: column;
+        /* Çok küçük ekranlarda dikey */
+        align-items: stretch;
+    }
+
+    .delete-btn,
+    .move-btn,
+    .complete-btn {
+        width: 100%;
+        text-align: center;
+    }
 }
 
-.error-msg {
-    color: #dc3545;
-    background: #f8d7da;
-    padding: 10px;
-    border-radius: 5px;
-    margin-top: 10px;
-    border: 1px solid #f5c6cb;
+/* Tablet ve küçük laptop'lar için (768px - 1024px) */
+@media (min-width: 768px) {
+    .container {
+        max-width: 500px;
+        padding: 25px;
+    }
+
+    .wide {
+        padding: 20px;
+    }
+
+    .dashboard-header {
+        flex-direction: row;
+        /* Tablet'te yatay */
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .dashboard-header h2 {
+        font-size: 20px;
+        text-align: left;
+    }
+
+    .header-controls {
+        flex-direction: row;
+        /* Tablet'te yatay */
+        align-items: center;
+        width: auto;
+    }
+
+    #excel-input {
+        width: 250px !important;
+    }
+
+    #order-input-section button,
+    .logout-btn {
+        width: auto;
+        padding: 10px 20px;
+    }
+
+    #stations-container {
+        grid-template-columns: repeat(2, 1fr);
+        /* Tablet'te 2 sütun */
+        gap: 20px;
+    }
+
+    .station-block h3 {
+        flex-direction: row;
+        /* Tablet'te yatay */
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .order-card-mini {
+        flex-direction: row;
+        /* Tablet'te yatay */
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .order-actions {
+        justify-content: flex-end;
+    }
 }
 
-#order-input-section {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: flex-end;
+/* Büyük ekranlar için (1024px ve üzeri) */
+@media (min-width: 1024px) {
+    body {
+        padding: 20px;
+        align-items: center;
+    }
+
+    .container {
+        max-width: 350px;
+    }
+
+    .wide {
+        max-width: 1400px;
+        padding: 30px;
+    }
+
+    .dashboard-header h2 {
+        font-size: 24px;
+    }
+
+    #stations-container {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        /* Responsive grid */
+        gap: 25px;
+    }
+
+    .order-card-mini {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .order-details div {
+        font-size: 13px;
+    }
+
+    .order-details strong {
+        font-size: 14px;
+    }
+
+    .delete-btn,
+    .move-btn,
+    .complete-btn,
+    .status-badge {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
 }
 
-#order-input-section button {
-    background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
+/* Çok büyük ekranlar için (1440px ve üzeri) */
+@media (min-width: 1440px) {
+    #stations-container {
+        grid-template-columns: repeat(4, 1fr);
+        /* Geniş ekranlarda 4 sütun */
+        gap: 30px;
+    }
+
+    .wide {
+        max-width: 1600px;
+    }
 }
 
-#order-input-section button:hover {
-    opacity: 0.9;
+/* Portrait mod için ek optimizasyonlar */
+@media (orientation: portrait) {
+    .dashboard-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-controls {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #excel-input {
+        width: 100% !important;
+    }
+}
+
+/* Landscape mod için optimizasyonlar */
+@media (orientation: landscape) and (max-height: 600px) {
+    body {
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    .station-block {
+        padding: 10px;
+    }
+
+    .order-card-mini {
+        padding: 8px;
+        margin: 4px 0;
+    }
+}
+
+/* Yüksek çözünürlük ekranlar için */
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+
+    .login-btn,
+    .logout-btn,
+    .delete-btn,
+    .move-btn,
+    .complete-btn {
+        border-width: 0.5px;
+    }
+}
+
+/* Karanlık mod desteği (isteğe bağlı) */
+@media (prefers-color-scheme: dark) {
+    .container {
+        background: #2c3e50;
+        color: #ecf0f1;
+    }
+
+    .station-block {
+        background: #34495e;
+        border-color: #4a6572;
+        color: #ecf0f1;
+    }
+
+    input,
+    select,
+    textarea {
+        background: #4a6572;
+        color: #ecf0f1;
+        border-color: #5d6d7e;
+    }
+
+    .order-card-mini {
+        background: #3a506b;
+        color: #ecf0f1;
+    }
+
+    .order-details strong {
+        color: #ecf0f1;
+    }
 }
