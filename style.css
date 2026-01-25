@@ -292,7 +292,7 @@ textarea {
 
 /* --- RESPONSIVE (MOBİL TEK SÜTUN) AYARLARI --- */
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     body {
         padding: 10px;
     }
@@ -331,15 +331,18 @@ textarea {
 
     /* TEK SÜTUN DÜZENİ */
     #stations-container {
-        display: flex;
-        flex-direction: column;
-        /* Alt alta sıralar */
+        display: flex !important;
+        /* Grid'i tamamen devre dışı bırak */
+        flex-direction: column !important;
+        /* Kesinlikle tek sütun yap */
         gap: 15px;
     }
 
     .station-block {
-        width: 100%;
-        box-sizing: border-box;
+        width: 100% !important;
+        /* Genişliği %100 yap */
+        max-width: none !important;
+        margin: 0 0 15px 0;
     }
 
     /* Sipariş Kartları Mobil Ayarı */
