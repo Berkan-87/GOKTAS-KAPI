@@ -1,3 +1,4 @@
+/* --- GENEL TASARIM VE TEMEL STİLLER --- */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -62,6 +63,7 @@ textarea {
     opacity: 0.9;
 }
 
+/* --- DASHBOARD HEADER --- */
 .dashboard-header {
     display: flex;
     justify-content: space-between;
@@ -82,6 +84,7 @@ textarea {
     height: 100px;
 }
 
+/* --- İSTASYON VE KART DÜZENİ --- */
 #stations-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -172,6 +175,7 @@ textarea {
     background: #4CAF50;
 }
 
+/* --- AKSİYON BUTONLARI --- */
 .order-actions {
     display: flex;
     gap: 5px;
@@ -232,6 +236,7 @@ textarea {
     font-size: 12px;
 }
 
+/* --- DİĞER BİLEŞENLER --- */
 .empty {
     color: #adb5bd;
     font-size: 14px;
@@ -285,13 +290,22 @@ textarea {
     opacity: 0.9;
 }
 
-/* --- RESPONSIVE TASARIM EKLEMELERİ --- */
+/* --- RESPONSIVE (MOBİL TEK SÜTUN) AYARLARI --- */
 
-/* Tablet ve Mobil Genel Düzenleme */
-@media (max-width: 992px) {
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    /* Giriş Paneli (Login/Register) */
+    .container {
+        width: 100%;
+        padding: 20px;
+    }
+
+    /* Dashboard Üst Kısım */
     .dashboard-header {
         flex-direction: column;
-        /* Başlık ve kontrolleri üst üste al */
         gap: 20px;
         text-align: center;
     }
@@ -304,76 +318,49 @@ textarea {
     #order-input-section {
         width: 100%;
         align-items: center;
-        /* Mobilde ortala */
     }
 
     #excel-input {
         width: 100% !important;
-        /* Textarea genişliğini tam yap */
+        height: 80px;
     }
 
     .logout-btn {
         width: 100%;
     }
-}
 
-/* Telefon Ekranları İçin (İstasyon Kartları Düzeni) */
-@media (max-width: 600px) {
-    body {
-        padding: 10px;
-        /* Kenar boşluklarını azalt */
-    }
-
-    .container {
-        width: 100%;
-        /* Giriş ekranı kutusunu tam genişlik yap */
-        padding: 20px;
-    }
-
-    .wide {
-        padding: 15px;
-    }
-
+    /* TEK SÜTUN DÜZENİ */
     #stations-container {
-        grid-template-columns: 1fr;
-        /* Mobilde istasyonları tek sütun yap */
+        display: flex;
+        flex-direction: column;
+        /* Alt alta sıralar */
+        gap: 15px;
     }
 
     .station-block {
-        padding: 15px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
+    /* Sipariş Kartları Mobil Ayarı */
     .order-card-mini {
         flex-direction: column;
-        /* Sipariş kartı içindeki butonları alta al */
-        align-items: flex-start;
-        gap: 10px;
+        align-items: stretch;
+        gap: 12px;
     }
 
     .order-actions {
+        justify-content: center;
         width: 100%;
-        justify-content: flex-start;
-        /* Butonları sola yasla */
     }
 
     .move-btn,
     .complete-btn,
+    .delete-btn,
     .status-badge {
         width: 100%;
-        /* Butonları tam genişlik yap (tıklama kolaylığı) */
+        /* Butonları parmakla kolay basılması için büyütür */
         text-align: center;
-    }
-
-    h2 {
-        font-size: 1.2rem;
-        /* Başlık boyutunu küçült */
+        padding: 12px;
     }
 }
-
-/* Çok Küçük Ekranlar İçin Logoyu ve Görselleri Ölçeklendir */
-@media (max-width: 350px) {
-    img {
-        width: 60px;
-    }
-}
-
