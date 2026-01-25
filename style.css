@@ -1,65 +1,45 @@
-/* MOBİL ÖNCELİKLİ CSS (0-767px) */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     min-height: 100vh;
-    padding: 0;
-    /* Kenar boşlukları kaldırıldı */
+    padding: 20px;
     margin: 0;
 }
 
 .container {
     background: white;
-    padding: 15px;
-    /* Daha az padding */
-    border-radius: 0;
-    /* Köşeleri yuvarlama kaldırıldı */
-    width: 100%;
-    /* Tam genişlik */
-    max-width: 100%;
-    /* Maksimum genişlik kaldırıldı */
+    padding: 30px;
+    border-radius: 15px;
+    width: 350px;
     text-align: center;
-    box-shadow: none;
-    /* Gölge kaldırıldı */
-    margin: 0;
-    /* Margin kaldırıldı */
-    min-height: 100vh;
-    /* Tam ekran yükseklik */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .wide {
-    width: 100%;
-    max-width: 100%;
-    /* Maksimum genişlik kaldırıldı */
-    padding: 10px;
-    /* Daha az padding */
+    width: 95%;
+    max-width: 1200px;
 }
 
-/* Form elemanları - mobil optimizasyon */
 select,
 input,
 textarea {
     width: 100%;
-    padding: 14px;
-    /* Daha büyük dokunma alanı */
-    margin: 8px 0;
+    padding: 12px;
+    margin: 10px 0;
     border: 1px solid #ddd;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 14px;
     box-sizing: border-box;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
 }
 
 textarea {
-    height: 120px;
+    height: 150px;
     resize: vertical;
     font-family: monospace;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.4;
     background: #f8f9fa;
     border: 1px solid #ced4da;
@@ -67,8 +47,7 @@ textarea {
 
 .login-btn {
     width: 100%;
-    padding: 16px;
-    /* Daha büyük buton */
+    padding: 12px;
     background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
     color: white;
     border: none;
@@ -77,101 +56,45 @@ textarea {
     font-size: 16px;
     font-weight: bold;
     margin-top: 10px;
-    transition: opacity 0.3s;
-    touch-action: manipulation;
 }
 
 .login-btn:hover {
     opacity: 0.9;
 }
 
-/* Dashboard header - mobil */
 .dashboard-header {
     display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 15px;
-    padding-bottom: 12px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
     border-bottom: 2px solid #eee;
-}
-
-.dashboard-header h2 {
-    font-size: 18px;
-    text-align: center;
-    margin: 0;
-    line-height: 1.3;
-    padding: 0 5px;
 }
 
 .header-controls {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: stretch;
-    width: 100%;
-}
-
-#order-input-section {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: stretch;
-    width: 100%;
+    gap: 15px;
+    align-items: center;
 }
 
 #excel-input {
-    width: 100% !important;
+    width: 300px;
     height: 100px;
-    font-size: 14px;
 }
 
-#order-input-section button {
-    background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
-    color: white;
-    border: none;
-    padding: 14px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 15px;
-    width: 100%;
-}
-
-.logout-btn {
-    background: linear-gradient(135deg, #ff4d4d 0%, #c53030 100%);
-    color: white;
-    border: none;
-    padding: 14px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 15px;
-    width: 100%;
-    text-align: center;
-}
-
-/* Stations container - TEK SÜTUN */
 #stations-container {
-    display: flex;
-    flex-direction: column;
-    /* Tek sütun */
-    gap: 12px;
-    /* Daha az boşluk */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
 }
 
 .station-block {
     background: #fff;
-    border: 1px solid #e1e5e9;
-    /* Daha ince border */
-    border-radius: 8px;
+    border: 2px solid #e1e5e9;
+    border-radius: 12px;
     text-align: left;
-    padding: 12px;
-    /* Daha az padding */
-    width: 100%;
-    /* Tam genişlik */
-    margin: 0;
-    /* Margin kaldırıldı */
-    box-sizing: border-box;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .station-block:last-child {
@@ -179,82 +102,157 @@ textarea {
     background: #f0f9f0;
 }
 
+.station-block:last-child h3 {
+    border-bottom-color: #4CAF50;
+    color: #2e7d32;
+}
+
+.station-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
 .station-block h3 {
     margin-top: 0;
     color: #2c3e50;
     border-bottom: 2px solid #3498db;
-    padding-bottom: 8px;
+    padding-bottom: 10px;
     display: flex;
-    flex-direction: column;
-    gap: 5px;
-    font-size: 16px;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.station-block h3 .order-count {
-    align-self: flex-start;
-    margin-top: 5px;
-}
-
-/* Order cards - mobil */
 .order-card-mini {
     background: #f8f9fa;
-    border-left: 4px solid #3498db;
-    /* Daha ince border */
-    padding: 10px;
-    margin: 5px 0;
+    border-left: 5px solid #3498db;
+    padding: 12px;
+    margin: 8px 0;
     display: flex;
-    flex-direction: column;
-    gap: 8px;
-    font-size: 13px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
     border-radius: 6px;
+    transition: all 0.3s;
+}
+
+.order-card-mini:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+.completed-order {
+    border-left: 5px solid #4CAF50;
+    background: #f0f9f0;
 }
 
 .order-details {
     flex: 1;
-    line-height: 1.3;
+    line-height: 1.4;
 }
 
 .order-details div {
     margin: 2px 0;
-    font-size: 12px;
-    word-break: break-word;
-    padding: 0 2px;
+    font-size: 13px;
 }
 
 .order-details strong {
-    font-size: 13px;
+    font-size: 14px;
     color: #2c3e50;
+}
+
+.order-count {
+    background: #e26d29;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 14px;
+}
+
+.station-block:last-child .order-count {
+    background: #4CAF50;
 }
 
 .order-actions {
     display: flex;
-    flex-wrap: wrap;
     gap: 5px;
-    justify-content: center;
-    /* Merkezde */
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
 }
 
-.delete-btn,
-.move-btn,
-.complete-btn,
-.status-badge {
+.delete-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
     font-size: 12px;
-    padding: 8px 12px;
-    min-height: 36px;
-    /* Minimum yükseklik */
-    flex: 1;
-    /* Eşit genişlik */
-    min-width: 100px;
-    /* Minimum genişlik */
-    text-align: center;
+}
+
+.delete-btn:hover {
+    background: #c82333;
+}
+
+.move-btn {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.move-btn:hover {
+    opacity: 0.9;
+}
+
+.complete-btn {
+    background: linear-gradient(135deg, #4CAF50 0%, #2e7d32 100%);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.complete-btn:hover {
+    opacity: 0.9;
+}
+
+.status-badge {
+    background: #6c757d;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
 }
 
 .empty {
     color: #adb5bd;
     font-size: 14px;
     text-align: center;
-    padding: 15px;
+    padding: 20px;
     font-style: italic;
+}
+
+.logout-btn {
+    background: linear-gradient(135deg, #ff4d4d 0%, #c53030 100%);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.logout-btn:hover {
+    opacity: 0.9;
 }
 
 .error-msg {
@@ -264,192 +262,118 @@ textarea {
     border-radius: 5px;
     margin-top: 10px;
     border: 1px solid #f5c6cb;
-    font-size: 14px;
 }
 
-/* Küçük mobil cihazlar için (360px ve altı) */
-@media (max-width: 360px) {
-    .container {
-        padding: 10px;
-    }
-
-    .wide {
-        padding: 8px;
-    }
-
-    .dashboard-header h2 {
-        font-size: 16px;
-    }
-
-    select,
-    input,
-    textarea {
-        padding: 12px;
-        font-size: 15px;
-    }
-
-    .login-btn,
-    .logout-btn,
-    #order-input-section button {
-        padding: 12px;
-        font-size: 14px;
-    }
-
-    .station-block {
-        padding: 10px;
-    }
-
-    .order-card-mini {
-        padding: 8px;
-    }
-
-    .delete-btn,
-    .move-btn,
-    .complete-btn,
-    .status-badge {
-        font-size: 11px;
-        padding: 6px 8px;
-        min-width: 90px;
-    }
+#order-input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
 }
 
-/* Tablet için (768px ve üzeri) */
-@media (min-width: 768px) {
-    body {
-        padding: 20px;
-        align-items: center;
-    }
+#order-input-section button {
+    background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
 
-    .container {
-        border-radius: 12px;
-        max-width: 500px;
-        padding: 25px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        min-height: auto;
-    }
+#order-input-section button:hover {
+    opacity: 0.9;
+}
 
-    .wide {
-        max-width: 1200px;
-        padding: 20px;
-    }
+/* --- RESPONSIVE TASARIM EKLEMELERİ --- */
 
-    #stations-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        /* Tablet'te 2 sütun */
-        gap: 20px;
-    }
-
+/* Tablet ve Mobil Genel Düzenleme */
+@media (max-width: 992px) {
     .dashboard-header {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .dashboard-header h2 {
-        font-size: 20px;
-        text-align: left;
+        flex-direction: column;
+        /* Başlık ve kontrolleri üst üste al */
+        gap: 20px;
+        text-align: center;
     }
 
     .header-controls {
-        flex-direction: row;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #order-input-section {
+        width: 100%;
         align-items: center;
-        width: auto;
+        /* Mobilde ortala */
     }
 
     #excel-input {
-        width: 250px !important;
+        width: 100% !important;
+        /* Textarea genişliğini tam yap */
     }
 
-    #order-input-section button,
     .logout-btn {
-        width: auto;
-        padding: 10px 20px;
-    }
-
-    .station-block h3 {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .order-card-mini {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .order-actions {
-        justify-content: flex-end;
-    }
-
-    .delete-btn,
-    .move-btn,
-    .complete-btn,
-    .status-badge {
-        flex: none;
-        min-width: auto;
+        width: 100%;
     }
 }
 
-/* Büyük ekranlar için (1024px ve üzeri) */
-@media (min-width: 1024px) {
-    .container {
-        max-width: 350px;
-    }
-
-    .wide {
-        max-width: 1400px;
-        padding: 30px;
-    }
-
-    .dashboard-header h2 {
-        font-size: 24px;
-    }
-
-    #stations-container {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 25px;
-    }
-}
-
-/* Çok büyük ekranlar için (1440px ve üzeri) */
-@media (min-width: 1440px) {
-    #stations-container {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 30px;
-    }
-
-    .wide {
-        max-width: 1600px;
-    }
-}
-
-/* Yatay (landscape) mod için */
-@media (orientation: landscape) and (max-height: 600px) {
-    .container {
+/* Telefon Ekranları İçin (İstasyon Kartları Düzeni) */
+@media (max-width: 600px) {
+    body {
         padding: 10px;
-        min-height: auto;
+        /* Kenar boşluklarını azalt */
+    }
+
+    .container {
+        width: 100%;
+        /* Giriş ekranı kutusunu tam genişlik yap */
+        padding: 20px;
+    }
+
+    .wide {
+        padding: 15px;
+    }
+
+    #stations-container {
+        grid-template-columns: 1fr;
+        /* Mobilde istasyonları tek sütun yap */
     }
 
     .station-block {
-        padding: 8px;
+        padding: 15px;
     }
 
     .order-card-mini {
-        padding: 6px;
-        margin: 3px 0;
+        flex-direction: column;
+        /* Sipariş kartı içindeki butonları alta al */
+        align-items: flex-start;
+        gap: 10px;
     }
 
-    #excel-input {
-        height: 80px;
+    .order-actions {
+        width: 100%;
+        justify-content: flex-start;
+        /* Butonları sola yasla */
+    }
+
+    .move-btn,
+    .complete-btn,
+    .status-badge {
+        width: 100%;
+        /* Butonları tam genişlik yap (tıklama kolaylığı) */
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        /* Başlık boyutunu küçült */
     }
 }
 
-/* Yatay mod ve tablet boyutu */
-@media (orientation: landscape) and (min-width: 768px) {
-    #stations-container {
-        grid-template-columns: repeat(3, 1fr);
-        /* Landscape'ta 3 sütun */
+/* Çok Küçük Ekranlar İçin Logoyu ve Görselleri Ölçeklendir */
+@media (max-width: 350px) {
+    img {
+        width: 60px;
     }
 }
+
