@@ -339,7 +339,7 @@ textarea {
     }
 
     .station-block {
-        width: 90% !important;
+        width: 95% !important;
         /* Genişliği %100 yap */
         max-width: none !important;
         margin: 0 0 15px 0;
