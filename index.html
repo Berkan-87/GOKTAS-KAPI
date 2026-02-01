@@ -3,47 +3,35 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Kapı Üretim Takip Sistemi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Göktaş Kapı - Üretim Takip Sistemi</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/favicon.ico">
 </head>
 
 <body>
-    <div id="register-screen" class="container" style="display:none;">
-        <img src="img/logo1.svg" width="80" alt="Logo">
-        <h2>Yeni Kullanıcı Kaydı</h2>
-        <input type="text" id="reg-name" placeholder="Adınız Soyadınız">
-        <input type="text" id="reg-user" placeholder="Kullanıcı Adı">
-        <input type="password" id="reg-pass" placeholder="Şifre">
-        <button onclick="handleRegister()" class="login-btn">Kayıt Ol</button>
-        <p id="register-error" class="error-msg" style="display:none;"></p>
-        <p>Zaten üye misiniz? <a href="#" onclick="showLogin()">Giriş Yap</a></p>
-    </div>
-
     <div id="login-screen" class="container">
-        <img src="img/logo1.svg" width="80" alt="Logo">
-        <h2>Sisteme Giriş</h2>
-        <input type="text" id="login-user" placeholder="Kullanıcı Adı">
-        <input type="password" id="login-pass" placeholder="Şifre">
-        <button onclick="handleLogin()" class="login-btn">Giriş Yap</button>
-        <p id="login-error" class="error-msg" style="display:none;">Hatalı kullanıcı adı veya şifre!</p>
-        <p>Üye değil misiniz? <a href="#" onclick="showRegister()">Kayıt Ol</a></p>
-    </div>
-
-    <div id="main-dashboard" class="container wide" style="display:none;">
-        <div class="dashboard-header">
-            <h2>GÖKTAŞ KAPI ÜRETİM PORTALI <span id="current-user-role"></span></h2>
-            <div class="header-controls">
-                <div id="order-input-section" style="display:none;">
-                    <textarea id="excel-input" placeholder="Sipariş girin"></textarea>
-                    <button onclick="addOrdersFromExcel()">Siparişleri Ekle</button>
-                </div>
-                <button onclick="logout()" class="logout-btn">Güvenli Çıkış</button>
-            </div>
+        <div class="login-header">
+            <img src="img/logo1.svg" alt="Göktaş Kapı" class="logo">
+            <h1>GÖKTAŞ KAPI</h1>
+            <p class="subtitle">Üretim ve Stok Takip Sistemi</p>
         </div>
 
-        <div id="stations-container"></div>
+        <div class="login-form">
+            <h2>Sisteme Giriş</h2>
+            <input type="text" id="login-user" placeholder="Kullanıcı Adı" required>
+            <input type="password" id="login-pass" placeholder="Şifre" required>
+            <button onclick="handleLogin()" class="btn-primary">Giriş Yap</button>
+            <p id="login-error" class="error-msg" style="display:none;">Hatalı kullanıcı adı veya şifre!</p>
+        </div>
+
+        <div class="login-footer">
+            <p>© 2024 Göktaş Kapı Üretim Ltd. Şti.</p>
+            <p class="version">v1.0.0</p>
+        </div>
     </div>
 
+    <script src="auth.js"></script>
     <script src="script.js"></script>
 </body>
 

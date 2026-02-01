@@ -1,369 +1,176 @@
-/* --- GENEL TASARIM VE TEMEL STİLLER --- */
-body {
+/* GENEL AYARLAR */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
     padding: 20px;
-    margin: 0;
 }
 
 .container {
     background: white;
-    padding: 30px;
-    border-radius: 15px;
-    width: 350px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    width: 100%;
+    max-width: 450px;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* LOGIN EKRANI */
+.login-header {
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.wide {
-    width: 95%;
-    max-width: 1200px;
-}
-
-select,
-input,
-textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 14px;
-    box-sizing: border-box;
-}
-
-textarea {
-    height: 150px;
-    resize: vertical;
-    font-family: monospace;
-    font-size: 13px;
-    line-height: 1.4;
-    background: #f8f9fa;
-    border: 1px solid #ced4da;
-}
-
-.login-btn {
-    width: 100%;
-    padding: 12px;
-    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-.login-btn:hover {
-    opacity: 0.9;
-}
-
-/* --- DASHBOARD HEADER --- */
-.dashboard-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin-bottom: 30px;
-    padding-bottom: 15px;
-    border-bottom: 2px solid #eee;
 }
 
-.header-controls {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-}
-
-#excel-input {
-    width: 300px;
+.logo {
+    width: 100px;
     height: 100px;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
 }
 
-/* --- İSTASYON VE KART DÜZENİ --- */
-#stations-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
-.station-block {
-    background: #fff;
-    border: 2px solid #e1e5e9;
-    border-radius: 12px;
-    text-align: left;
-    padding: 20px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.station-block:last-child {
-    border-color: #4CAF50;
-    background: #f0f9f0;
-}
-
-.station-block:last-child h3 {
-    border-bottom-color: #4CAF50;
-    color: #2e7d32;
-}
-
-.station-block:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-}
-
-.station-block h3 {
-    margin-top: 0;
+.login-header h1 {
     color: #2c3e50;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    font-size: 28px;
+    margin-bottom: 10px;
 }
 
-.order-card-mini {
-    background: #f8f9fa;
-    border-left: 5px solid #3498db;
-    padding: 12px;
-    margin: 8px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.subtitle {
+    color: #7f8c8d;
     font-size: 14px;
-    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* FORM STİLLERİ */
+.login-form h2 {
+    color: #2c3e50;
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 500;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
     transition: all 0.3s;
 }
 
-.order-card-mini:hover {
-    background: #e9ecef;
-    transform: translateX(5px);
+input:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
 }
 
-.completed-order {
-    border-left: 5px solid #4CAF50;
-    background: #f0f9f0;
-}
-
-.order-details {
-    flex: 1;
-    line-height: 1.4;
-}
-
-.order-details div {
-    margin: 2px 0;
-    font-size: 13px;
-}
-
-.order-details strong {
-    font-size: 14px;
-    color: #2c3e50;
-}
-
-.order-count {
-    background: #e26d29;
-    color: white;
-    padding: 3px 8px;
-    border-radius: 12px;
-    font-size: 14px;
-}
-
-.station-block:last-child .order-count {
-    background: #4CAF50;
-}
-
-/* --- AKSİYON BUTONLARI --- */
-.order-actions {
-    display: flex;
-    gap: 5px;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-}
-
-.delete-btn {
-    background: #dc3545;
+/* BUTONLAR */
+.btn-primary {
+    width: 100%;
+    padding: 15px;
+    background: #3498db;
     color: white;
     border: none;
-    padding: 6px 10px;
-    border-radius: 4px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
-    font-size: 12px;
+    transition: all 0.3s;
+    margin-top: 10px;
 }
 
-.delete-btn:hover {
-    background: #c82333;
+.btn-primary:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
 }
 
-.move-btn {
-    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: bold;
+.btn-secondary {
+    background: #2ecc71;
 }
 
-.move-btn:hover {
-    opacity: 0.9;
+.btn-secondary:hover {
+    background: #27ae60;
 }
 
-.complete-btn {
-    background: linear-gradient(135deg, #4CAF50 0%, #2e7d32 100%);
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.complete-btn:hover {
-    opacity: 0.9;
-}
-
-.status-badge {
-    background: #6c757d;
-    color: white;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-}
-
-/* --- DİĞER BİLEŞENLER --- */
-.empty {
-    color: #adb5bd;
+/* HATA MESAJLARI */
+.error-msg {
+    color: #e74c3c;
     font-size: 14px;
     text-align: center;
-    padding: 20px;
-    font-style: italic;
-}
-
-.logout-btn {
-    background: linear-gradient(135deg, #ff4d4d 0%, #c53030 100%);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    white-space: nowrap;
-}
-
-.logout-btn:hover {
-    opacity: 0.9;
-}
-
-.error-msg {
-    color: #dc3545;
-    background: #f8d7da;
+    margin-top: 15px;
     padding: 10px;
+    background: #fdf2f2;
     border-radius: 5px;
-    margin-top: 10px;
-    border: 1px solid #f5c6cb;
+    border-left: 4px solid #e74c3c;
 }
 
-#order-input-section {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: flex-end;
+/* FOOTER */
+.login-footer {
+    margin-top: 30px;
+    text-align: center;
+    color: #95a5a6;
+    font-size: 12px;
+    border-top: 1px solid #ecf0f1;
+    padding-top: 20px;
 }
 
-#order-input-section button {
-    background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
+.version {
+    font-size: 11px;
+    margin-top: 5px;
+    color: #bdc3c7;
 }
 
-#order-input-section button:hover {
-    opacity: 0.9;
-}
-
-/* --- RESPONSIVE (MOBİL TEK SÜTUN) AYARLARI --- */
-
-@media (max-width: 992px) {
-    body {
-        padding: 10px;
-    }
-
-    /* Giriş Paneli (Login/Register) */
+/* RESPONSIVE */
+@media (max-width: 768px) {
     .container {
-        width: 100%;
-        padding: 20px;
+        padding: 30px 20px;
+        margin: 20px;
     }
 
-    /* Dashboard Üst Kısım */
-    .dashboard-header {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-    }
-
-    .header-controls {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    #order-input-section {
-        width: 100%;
-        align-items: center;
-    }
-
-    #excel-input {
-        width: 100% !important;
+    .logo {
+        width: 80px;
         height: 80px;
     }
 
-    .logout-btn {
-        width: 100%;
-    }
-
-    /* TEK SÜTUN DÜZENİ */
-    #stations-container {
-        display: flex !important;
-        /* Grid'i tamamen devre dışı bırak */
-        flex-direction: column !important;
-        /* Kesinlikle tek sütun yap */
-        gap: 15px;
-    }
-
-    .station-block {
-        width: 95% !important;
-        /* Genişliği %100 yap */
-        /* max-width: none !important; */
-        margin: 0 0 15px 0;
-    }
-
-    /* Sipariş Kartları Mobil Ayarı */
-    .order-card-mini {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 12px;
-    }
-
-    .order-actions {
-        justify-content: center;
-        width: 100%;
-    }
-
-    .move-btn,
-    .complete-btn,
-    .delete-btn,
-    .status-badge {
-        width: 100%;
-        /* Butonları parmakla kolay basılması için büyütür */
-        text-align: center;
-        padding: 12px;
+    .login-header h1 {
+        font-size: 24px;
     }
 }
